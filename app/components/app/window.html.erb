@@ -1,0 +1,13 @@
+<div id="<%= @id %>" class="bg-slate-200 origin-bottom-left absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 rounded-md" data-controller="app-window">
+  <div class="h-fit w-full rounded-t-md flex justify-between items-center overflow-hidden">
+    <div class="px-2">
+      About Me!
+    </div>
+
+    <div class="flex">
+      <i class="fa-solid fa-minus py-2 px-4 hover:bg-slate-400" data-action="click->app-window#minimize"></i>
+      <div class="hidden md:inline"><i class="fa-regular fa-square py-2 px-4 hover:bg-slate-400 md:scale-100" data-action="click->app-window#fullScreen"></i></div>
+      <i class="fa-solid fa-xmark py-2 px-4 hover:bg-red-500" data-action="click->app-window#remove"></i>
+    </div>
+  </div>
+</div>

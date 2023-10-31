@@ -1,0 +1,18 @@
+<div class="absolute bottom-0 w-screen h-16 border bg-white/70 p-1">
+  <div class="relative flex justify-center h-full">
+    <div class="absolute right-0">
+      Setting
+    </div>
+
+    <%= link_to about_app_index_path,
+                data: { turbo_frame: "about_frame", active: "false", onscreen: "false" },
+                id: "aboutDockIcon",
+                class: "group hover:bg-white/80 data-[onscreen=true]:bg-white/80 relative h-full flex justify-center items-center ratio-square p-2 rounded-md transition-all" do %>
+      <%= image_tag "icons/setting.svg", class: "h-full" %>
+      <span class="absolute rounded-md -top-full -z-30 bg-white/70 scale-0 group-hover:scale-100 transition-all duration-300 origin-bottom">
+        About Me!
+      </span>
+      <span class="invisible group-data-[active=true]:visible w-2/5 h-1 bg-blue-700 absolute rounded-md bottom-0"></span>
+    <% end %>
+  </div>
+</div>
