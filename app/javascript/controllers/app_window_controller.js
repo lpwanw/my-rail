@@ -2,9 +2,12 @@ import { Controller } from "@hotwired/stimulus"
 import { animate } from "motion"
 // Connects to data-controller="app-window"
 export default class extends Controller {
+  static targets = [ "topBar" ]
+
   connect() {
     this.dockIcon = document.getElementById(`${this.element.id}DockIcon`)
     this.size = "min";
+
     if(this.dockIcon) {
       this.dockIcon.dataset.active = "true";
       this.dockIcon.dataset.onscreen = "true";
@@ -19,6 +22,29 @@ export default class extends Controller {
     }
 
     this.fullScreen();
+
+    this.topBarTarget.addEventListener("mousedown", () => {
+      this.isDragable = true
+    })
+
+    this.topBarTarget.addEventListener("mouseup", () => {
+      this.isDragable = false
+    })
+
+    this.topBarTarget.addEventListener("mousemove", (event) => {
+      if(!this.isDragable || this.size === "full") return;
+
+      const offsetTop = this.element.offsetTop + event.movementY
+      const offsetLeft = this.element.offsetLeft + event.movementX
+
+      this.element.style.top = `${offsetTop}px`
+      this.element.style.left = `${offsetLeft}px`
+    })
+
+    this.topBarTarget.addEventListener("mouseout", () => {
+      this.isDragable = false
+    });
+
   }
 
   fullScreen() {

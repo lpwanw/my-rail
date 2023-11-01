@@ -11,8 +11,8 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <%= image_tag "light.jpg", class: "h-screen w-screen -z-50 absolute object-cover"%>
+  <body class="overflow-hidden">
+    <%= image_tag "light.jpg", class: "h-screen w-screen -z-50 absolute object-cover" %>
 
     <%= yield %>
 
