@@ -1,10 +1,14 @@
 import { Controller } from "@hotwired/stimulus"
-
+import { animate } from "motion"
 // Connects to data-controller="app--about"
 export default class extends Controller {
-  static targets = [ "tabItem", "contentItem" ]
+  static targets = [ "tabItem", "contentItem", "tabMenu", "tabButton", "stick" ]
 
   connect() {
+    const windowContainer = document.getElementById("about")
+    windowContainer.addEventListener("scroll", (event) => {
+      animate(this.tabMenuTarget, { y: `${windowContainer.scrollTop}px`}, { duration: 0 })
+    });
   }
 
   profile() {
@@ -28,6 +32,30 @@ export default class extends Controller {
       if(item.dataset.role === tab) {
         item.dataset.active = "true"
       } else {
+        item.dataset.active = "false"
+      }
+    }
+
+    this.toggleTabMenu();
+  }
+
+  toggleTabMenu() {
+    for(let item of this.stickTargets) {
+      if(this.isOpen) {
+        item.dataset.submenu = "open"
+      } else {
+        item.dataset.submenu = "close"
+      }
+    }
+
+    if(!(this.tabMenuTarget.dataset.active === "true")) {
+      this.tabMenuTarget.dataset.active = "true"
+      for(let item of this.stickTargets) {
+          item.dataset.active = "true"
+      }
+    } else {
+      this.tabMenuTarget.dataset.active = "false"
+      for(let item of this.stickTargets) {
         item.dataset.active = "false"
       }
     }

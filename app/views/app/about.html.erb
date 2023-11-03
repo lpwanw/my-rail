@@ -1,9 +1,18 @@
 <%= turbo_frame_tag "about_frame" do %>
   <%= render App::Window.new id: "about" do |component| %>
     <% component.with_body do %>
-      <div class="w-full flex p-2" data-controller="app--about">
-        <div class="w-60 flex flex-col gap-1">
-          <div for="profile" class="w-full rounded flex p-2 hover:bg-gray-300 transition-all cursor-pointer" data-action="click->app--about#profile">
+      <div class="relative w-full flex p-2" data-controller="app--about">
+        <div class="absolute top-2 right-6 border md:hidden" data-app--about-target="tabButton" data-action="click->app--about#toggleTabMenu">
+          <div class="relative h-8 w-8 flex flex-col items-center origin-center rounded-2xl">
+            <div data-app--about-target="stick" class="absolute top-1/4 w-7 h-0.5 bg-slate-900 origin-center data-[active=true]:rotate-45 data-[active=true]:top-1/2 transition-all ease-in-out">
+            </div>
+            <div data-app--about-target="stick" class="absolute top-3/4 w-7 h-0.5 bg-slate-900 origin-center data-[active=true]:-rotate-45 data-[active=true]:top-1/2 transition-all ease-in-out">
+            </div>
+          </div>
+        </div>
+
+        <div data-app--about-target="tabMenu" data-active="false" class="py-2 rounded absolute md:static w-60 flex flex-col gap-1 bg-slate-200 -translate-x-[120%] md:translate-x-0 data-[active=true]:translate-x-0 data-[active=true]:scale-100 border md:border-0 border-l-0 data-[active=true]:border-slate-500  md:scale-100 transition-all">
+          <div class="w-full rounded flex p-2 hover:bg-gray-300 transition-all cursor-pointer" data-action="click->app--about#profile">
             <div class="h-16 w-16 aspect-square flex justify-center items-center rounded-full bg-neutral-300">
               <i class="fa-regular fa-user fa-2xl text-3xl"></i>
             </div>
@@ -37,18 +46,21 @@
             <div class="w-1 h-1/2 bg-blue-500 absolute left-0 rounded-md invisible group-data-[active=true]:visible transition-all"></div>
           </div>
         </div>
-        <div class="grow mx-8 px-2">
-          <div data-role="system" class="max-w-screen-lg border border-red-500" data-app--about-target="contentItem">
-            <h1 class="text-3xl bold">System</h1>
-            <div class="w-full flex items-center mt-2">
-              <%= image_tag "light.jpg", class: "h-20 aspect-square border-4 border-black rounded" %>
 
-              <div class="px-4">
-                <h1 class="bold">Le Phuong Tay</h1>
-                <span>Fullstack</span>
+        <div class="grow mx-0 lg:mx-8 px-2 lg:max-w-screen-lg ">
+          <div data-role="system" class="" data-app--about-target="contentItem">
+            <h1 class="text-3xl bold">System</h1>
+            <div class="w-full flex items-center mt-2 flex-col sm:flex-row">
+              <div class="flex items-center">
+                <%= image_tag "light.jpg", class: "h-20 aspect-square border-4 border-black rounded" %>
+
+                <div class="px-4">
+                  <h1 class="bold">Le Phuong Tay</h1>
+                  <span>Fullstack</span>
+                </div>
               </div>
 
-              <div class="grow flex justify-end">
+              <div class="grow flex justify-end flex-col sm:flex-row">
                 <div class="flex items-center p-2 rounded hover:bg-gray-300">
                   <i class="fa-solid fa-gem text-2xl mr-2"></i>
                   <div>
@@ -68,32 +80,51 @@
             </div>
 
             <div class="mt-4 flex flex-col gap-2">
-              <div class="flex items-center p-2 rounded border border-gray-300">
-                <i class="fa-solid fa-gem text-2xl p-2 mr-2"></i>
-                <div class="grow">
-                  <h1>Ruby on Rails</h1>
-                  <span class="text-sm font-light">Loving rails 7, It is the one person framework</span>
-                </div>
-                <div>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                </div>
-              </div>
+              <%= render App::About::System::Item.new(
+                icon_class: "fa-solid fa-gem",
+                title: "Ruby on Rails",
+                description: "Loving rails 7, It is the one person framework.",
+                start_count: 3
+              ) %>
 
-              <div class="flex items-center p-2 rounded border border-gray-300">
-                <i class="fa-brands fa-docker text-2xl p-2 mr-2"></i>
+              <%= render App::About::System::Item.new(
+                icon_class: "fa-brands fa-docker ",
+                title: "Docker",
+                description: "Handle the tedious setup, so I can focus on the code.",
+                start_count: 3
+              ) %>
 
-                <div class="grow">
-                  <h1>Docker</h1>
-                  <span class="text-sm font-light">Handle the tedious setup, so I can focus on the code.</span>
-                </div>
+              <%= render App::About::System::Item.new(
+                icon_class: nil,
+                icon_image: "icons/tailwind_logo.svg",
+                title: "Tailwind",
+                description: "It’s easy to customize, adapts to any design, and the build size is tiny.",
+                start_count: 3
+              ) %>
 
-                <div>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                </div>
-              </div>
+              <%= render App::About::System::Item.new(
+                icon_class: nil,
+                icon_image: "icons/tailwind_logo.svg",
+                title: "Tailwind",
+                description: "It’s easy to customize, adapts to any design, and the build size is tiny.",
+                start_count: 3
+              ) %>
+
+              <%= render App::About::System::Item.new(
+                icon_class: nil,
+                icon_image: "icons/tailwind_logo.svg",
+                title: "Tailwind",
+                description: "It’s easy to customize, adapts to any design, and the build size is tiny.",
+                start_count: 3
+              ) %>
+
+              <%= render App::About::System::Item.new(
+                icon_class: nil,
+                icon_image: "icons/tailwind_logo.svg",
+                title: "Tailwind",
+                description: "It’s easy to customize, adapts to any design, and the build size is tiny.",
+                start_count: 3
+              ) %>
             </div>
           </div>
           <div data-role="profile" class="hidden" data-app--about-target="contentItem">
