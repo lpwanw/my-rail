@@ -8,7 +8,7 @@ export default class extends Controller {
     this.element.addEventListener("scroll", (event) => {
       if(window.innerWidth > 768 || !(this.tabMenuTarget.dataset.active === "true")) return;
 
-      animate(this.tabMenuTarget, { y: `${this.element.scrollTop}px`}, { duration: 0 })
+      this.tabMenuTarget.style.top = `${8 + this.element.scrollTop}px`
     });
   }
 
