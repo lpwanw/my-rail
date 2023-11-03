@@ -1,7 +1,7 @@
 <%= turbo_frame_tag "about_frame" do %>
   <%= render App::Window.new id: "about" do |component| %>
     <% component.with_body do %>
-      <div class="relative w-full flex p-2" data-controller="app--about">
+      <div class="relative grow w-full flex p-2 overflow-y-auto" data-controller="app--about">
         <div class="absolute top-2 right-6 border md:hidden" data-app--about-target="tabButton" data-action="click->app--about#toggleTabMenu">
           <div class="relative h-8 w-8 flex flex-col items-center origin-center rounded-2xl">
             <div data-app--about-target="stick" class="absolute top-1/4 w-7 h-0.5 bg-slate-900 origin-center data-[active=true]:rotate-45 data-[active=true]:top-1/2 transition-all ease-in-out">
