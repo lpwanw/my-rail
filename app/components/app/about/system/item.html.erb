@@ -1,16 +1,18 @@
 <div class="flex items-center p-2 rounded border border-gray-300">
-  <% if icon_class %>
-    <i class="<%= icon_class %> text-2xl p-2 mr-2"></i>
-  <% else %>
-    <%= image_tag icon_image, class: "h-5 m-2" %>
-  <% end %>
+  <div class="w-8 m-2 flex-none">
+    <% if icon_image %>
+      <%= image_tag icon_image, class: "w-8 #{icon_class}" %>
+    <% else %>
+      <i class="<%= icon_class %> text-2xl"></i>
+    <% end %>
+  </div>
 
   <div class="grow">
     <h1><%= title %></h1>
     <span class="text-sm font-light"><%= description %></span>
   </div>
 
-  <div class="flex sm:flex-col ml-4">
+  <div class="flex flex-col sm:flex-row ml-4">
     <% start_count.times do %>
       <i class="fa-solid fa-star"></i>
     <% end %>

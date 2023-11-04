@@ -81,17 +81,18 @@
 
             <div class="mt-4 flex flex-col gap-2">
               <%= render App::About::System::Item.new(
-                icon_class: "fa-solid fa-gem",
+                icon_class: nil,
+                icon_image: "icons/rails_logo.svg",
                 title: "Ruby on Rails",
                 description: "Loving rails 7, It is the one person framework.",
                 start_count: 3
               ) %>
 
               <%= render App::About::System::Item.new(
-                icon_class: "fa-brands fa-docker ",
+                icon_class: "fa-brands fa-docker text-blue-700",
                 title: "Docker",
                 description: "Handle the tedious setup, so I can focus on the code.",
-                start_count: 3
+                start_count: 1
               ) %>
 
               <%= render App::About::System::Item.new(
@@ -99,31 +100,28 @@
                 icon_image: "icons/tailwind_logo.svg",
                 title: "Tailwind",
                 description: "It’s easy to customize, adapts to any design, and the build size is tiny.",
-                start_count: 3
+                start_count: 2
               ) %>
 
               <%= render App::About::System::Item.new(
-                icon_class: nil,
-                icon_image: "icons/tailwind_logo.svg",
-                title: "Tailwind",
-                description: "It’s easy to customize, adapts to any design, and the build size is tiny.",
-                start_count: 3
+                icon_class: "fa-brands fa-aws",
+                title: "AWS",
+                description: "EC2, S3, RDS, Lambda, Load Balancer,... Also Localstack to run cloud in local",
+                start_count: 1
               ) %>
 
               <%= render App::About::System::Item.new(
-                icon_class: nil,
-                icon_image: "icons/tailwind_logo.svg",
-                title: "Tailwind",
-                description: "It’s easy to customize, adapts to any design, and the build size is tiny.",
-                start_count: 3
+                icon_class: "fa-solid fa-database",
+                title: "Database",
+                description: "Mysql, Postgres,... a bit of NoSQL and Redis",
+                start_count: 2
               ) %>
 
               <%= render App::About::System::Item.new(
-                icon_class: nil,
-                icon_image: "icons/tailwind_logo.svg",
-                title: "Tailwind",
-                description: "It’s easy to customize, adapts to any design, and the build size is tiny.",
-                start_count: 3
+                icon_class: "fa-solid fa-swatchbook",
+                title: "Small Experiences in real Project",
+                description: "NodeJs, Serverless, tRPC, dynamoDb",
+                start_count: 0
               ) %>
             </div>
           </div>
