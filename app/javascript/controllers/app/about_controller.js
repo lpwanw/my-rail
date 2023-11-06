@@ -5,9 +5,10 @@ export default class extends Controller {
   static targets = [ "tabItem", "contentItem", "tabMenu", "tabButton", "stick" ]
 
   connect() {
-    const windowContainer = document.getElementById("about")
-    windowContainer.addEventListener("scroll", (event) => {
-      animate(this.tabMenuTarget, { y: `${windowContainer.scrollTop}px`}, { duration: 0 })
+    this.element.addEventListener("scroll", (event) => {
+      if(window.innerWidth > 768 || !(this.tabMenuTarget.dataset.active === "true")) return;
+
+      this.tabMenuTarget.style.top = `${8 + this.element.scrollTop}px`
     });
   }
 
@@ -59,5 +60,7 @@ export default class extends Controller {
         item.dataset.active = "false"
       }
     }
+
+    this.tabMenuTarget.style = {}
   }
 }

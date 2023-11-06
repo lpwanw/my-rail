@@ -45,6 +45,11 @@ export default class extends Controller {
       this.isDragable = false
     });
 
+    this.topBarTarget.addEventListener("dblclick", () => {
+      if(window.innerWidth > 768) return;
+
+      this.fullScreen();
+    });
   }
 
   fullScreen() {
