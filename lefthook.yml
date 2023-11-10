@@ -1,0 +1,27 @@
+# EXAMPLE USAGE:
+#
+#   Refer for explanation to following link:
+#   https://github.com/evilmartians/lefthook/blob/master/docs/configuration.md
+#
+# pre-push:
+#   commands:
+#     packages-audit:
+#       tags: frontend security
+#       run: yarn audit
+#     gems-audit:
+#       tags: backend security
+#       run: bundle audit
+#
+pre-commit:
+  parallel: true
+  commands:
+    rubocop-linter:
+      glob: "{*.rb,*.erb,*.rake,*.jbuilder,*.builder,*.ru,Capfile,Gemfile,Rakefile}"
+      run: bundle exec rubocop --force-exclusion {all_files}
+      skip:
+        - merge
+        - rebase
+    rails_best_practices:
+      tags: backend best_practices
+      glob: "*.rb,*.erb"
+      run: bundle exec rails_best_practices {all_files}
