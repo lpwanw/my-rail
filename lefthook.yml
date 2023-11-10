@@ -16,12 +16,9 @@ pre-commit:
   parallel: true
   commands:
     rubocop-linter:
-      glob: "{*.rb,*.erb,*.rake,*.jbuilder,*.builder,*.ru,Capfile,Gemfile,Rakefile}"
-      run: bundle exec rubocop --force-exclusion {all_files}
+      run: bundle exec rubocop --parallel
       skip:
         - merge
         - rebase
     rails_best_practices:
-      tags: backend best_practices
-      glob: "*.rb,*.erb"
-      run: bundle exec rails_best_practices {all_files}
+      run: bundle exec rails_best_practices

@@ -12,4 +12,8 @@ Rails.application.routes.draw do
       get :about
     end
   end
+
+  namespace :examples do
+    resources :infinity_scroll, only: %i[index]
+  end
 end
