@@ -1,7 +1,8 @@
 <div id="<%= @id %>" class="bg-slate-200 origin-bottom-left absolute rounded-md pb-4 flex flex-col" data-controller="app-window">
   <div class="h-12 flex-none w-full rounded-t-md flex justify-between items-center overflow-hidden" data-app-window-target="topBar">
-    <div class="p-2">
-      About Me!
+    <div class="p-2 flex justify-center gap-2">
+      <%= image_tag @icon, class: "h-6" %>
+      <%= @title %>
     </div>
 
     <div class="flex">
@@ -10,6 +11,7 @@
       <i class="fa-solid fa-xmark py-2 px-4 hover:bg-red-500" data-action="click->app-window#remove"></i>
     </div>
   </div>
-
-  <%= body %>
+  <div class="relative grow w-full flex p-2 overflow-y-auto" data-controller="<%= @js_controller %>">
+    <%= body %>
+  </div>
 </div>
