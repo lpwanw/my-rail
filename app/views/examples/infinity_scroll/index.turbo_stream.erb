@@ -1,0 +1,10 @@
+<%= turbo_stream.append :movies do %>
+  <%= render partial: "examples/infinity_scroll/movie", collection: @items %>
+<% end %>
+
+<%= turbo_stream.replace :load_more do %>
+  <%# rerender if next_page? %>
+  <%= turbo_frame_tag :load_more, loading: :lazy, src: examples_infinity_scroll_index_path(format: :turbo_stream) %>
+<% end %>
+
+

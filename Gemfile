@@ -8,6 +8,7 @@ ruby "3.2.2"
 gem "bootsnap", require: false
 gem "config"
 gem "dotenv-rails"
+gem "ffaker"
 gem "font-awesome-sass"
 gem "importmap-rails"
 gem "jbuilder"
@@ -25,7 +26,6 @@ gem "view_component"
 group :development, :test do
   gem "debug", platforms: %i[mri mingw x64_mingw]
   gem "factory_bot_rails"
-  gem "ffaker"
   gem "rails_best_practices"
   gem "rspec-rails"
   gem "rubocop", require: false
@@ -37,6 +37,7 @@ group :development, :test do
 end
 
 group :development do
+  gem "lefthook"
   gem "web-console"
 end
 

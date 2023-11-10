@@ -1,0 +1,9 @@
+<div class="flex flex-col gap-2">
+  <%# Initial items %>
+
+  <%= turbo_frame_tag :movies do %>
+    <%= render partial: "examples/infinity_scroll/movie", collection: @items %>
+  <% end %>
+
+  <%= turbo_frame_tag :load_more, loading: :lazy, src: examples_infinity_scroll_index_path(format: :turbo_stream) %>
+</div>
