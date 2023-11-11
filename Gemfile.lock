@@ -94,6 +94,7 @@ GEM
       xpath (~> 3.2)
     code_analyzer (0.5.5)
       sexp_processor
+    coderay (1.1.3)
     concurrent-ruby (1.2.2)
     config (5.0.0)
       deep_merge (~> 1.2, >= 1.2.1)
@@ -210,6 +211,9 @@ GEM
     parser (3.2.2.4)
       ast (~> 2.4.1)
       racc
+    pry (0.14.2)
+      coderay (~> 1.1)
+      method_source (~> 1.0)
     psych (5.1.1.1)
       stringio
     public_suffix (5.0.3)
@@ -399,6 +403,7 @@ DEPENDENCIES
   jbuilder
   lefthook
   mysql2 (~> 0.5)
+  pry
   puma
   rails (~> 7.1.1)
   rails_best_practices

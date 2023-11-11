@@ -26,6 +26,7 @@ gem "view_component"
 group :development, :test do
   gem "debug", platforms: %i[mri mingw x64_mingw]
   gem "factory_bot_rails"
+  gem "pry"
   gem "rails_best_practices"
   gem "rspec-rails"
   gem "rubocop", require: false
