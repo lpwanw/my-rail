@@ -2,10 +2,10 @@
 
 class Examples::Task < ApplicationRecord
   enum status: {
-    initialized: :initialized,
-    in_progress: :in_progress,
-    pending: :pending,
-    completed: :completed
+    initialized: "initialized",
+    in_progress: "in_progress",
+    pending: "pending",
+    completed: "completed"
   }
   validates :status, presence: true
 

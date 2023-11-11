@@ -15,5 +15,8 @@ Rails.application.routes.draw do
 
   namespace :examples do
     resources :infinity_scroll, only: %i[index]
+    resources :sortable, only: %i[index]
+
+    resources :tasks, only: %i[update]
   end
 end

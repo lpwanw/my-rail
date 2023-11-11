@@ -6,8 +6,10 @@ RSpec.describe Examples::Task do
   describe "Validations" do
     it do
       is_expected.to define_enum_for(:status)
-        .with_values({ initialized: :initialized, in_progress: :in_progress, pending: :pending, completed: :completed })
-        .backed_by_column_of_type(:string)
+        .with_values(
+          { initialized: "initialized", in_progress: "in_progress",
+            pending: "pending", completed: "completed" }
+        ).backed_by_column_of_type(:string)
     end
 
     it { is_expected.to validate_presence_of(:status) }
