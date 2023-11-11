@@ -7,3 +7,7 @@
 
   <%= turbo_frame_tag :load_more, loading: :lazy, src: examples_infinity_scroll_index_path(format: :turbo_stream) %>
 </div>
+
+<% content_for :show_scroll_top do %>
+  <%= true %>
+<% end %>
