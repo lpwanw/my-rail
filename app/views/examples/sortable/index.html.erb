@@ -1,13 +1,5 @@
-<ul data-controller="examples--sortable"
-    data-status="initialized"
-    class="border"
->
-  <%= render partial: "examples/sortable/task", collection: @task_by_status[:initialized] %>
-</ul>
-
-<ul data-controller="examples--sortable"
-    data-status="in_progress"
-    class="border ml-4"
->
-  <%= render partial: "examples/sortable/task", collection: @task_by_status[:in_progress] %>
-</ul>
+<div class="flex gap-2 w-full">
+  <% Examples::Task.statuses.keys.each do |key| %>
+    <%= render "examples/sortable/task_by_status", key: key, tasks: @task_by_status[key] %>
+  <% end %>
+</div>
