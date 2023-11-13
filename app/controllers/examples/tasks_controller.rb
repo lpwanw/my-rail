@@ -3,9 +3,7 @@
 class Examples::TasksController < ApplicationController
   before_action :load_task, only: %i[show edit update]
 
-  def show
-    redirect_to examples_sortable_index_path unless turbo_frame_request?
-  end
+  def show; end
 
   def edit
     redirect_to examples_sortable_index_path unless turbo_frame_request?
