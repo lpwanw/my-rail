@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rails7Template</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <main class="container mx-auto flex flex-col">
+      <%= yield %>
+    </main>
+
+    <div class="fixed top-0 w-screen h-screen bg-repeat opacity-10 pointer-events-none z-50" style="background-image: url(<%= image_url "noise.png" %>)"></div>
+
+    <% if content_for?(:show_scroll_top) %>
+      <div data-controller="scroll-top"
+           class="group fixed right-12 bottom-6 scale-125 h-fit -translate-y-32"
+      >
+        <i class="md:group-hover:scgale-150 transition-all fa-solid fa-circle-up fa-2xl" data-action="click->scroll_top#trigger"></i>
+      </div>
+    <% end %>
+  </body>
+</html>
