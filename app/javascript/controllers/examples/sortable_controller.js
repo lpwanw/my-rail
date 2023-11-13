@@ -15,7 +15,7 @@ export default class extends Controller {
     const newStatus = event.to.dataset.status;
     const updateUrl = event.item.dataset.updateUrl;
     put(updateUrl, {
-      body: JSON.stringify({status: newStatus})
+      body: JSON.stringify({examples_task: { status: newStatus }})
     });
   }
 }
