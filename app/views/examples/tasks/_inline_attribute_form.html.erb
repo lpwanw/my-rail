@@ -1,6 +1,5 @@
 <%= turbo_frame_tag params[:attribute] do %>
   <%= form_for task do |f| %>
     <%= render "examples/tasks/inline_#{params[:attribute]}_input", f: f %>
-    <%= hidden_field :attribute, params[:attribute] %>
   <% end %>
 <% end %>

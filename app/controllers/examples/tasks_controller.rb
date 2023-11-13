@@ -12,7 +12,7 @@ class Examples::TasksController < ApplicationController
   def update
     @task.update task_update_params
 
-    render :show if params[:attribute]
+    render :show if turbo_frame_request?
   end
 
   private
