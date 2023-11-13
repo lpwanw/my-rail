@@ -1,5 +1,7 @@
 <li id="<%= dom_id task %>"
     data-update-url="<%= examples_task_url(task) %>"
-    class="bg-white rounded-md p-2">
-  <h1><%= task.name %></h1>
+    class="bg-white rounded-md p-2 cursor-pointer">
+  <%= link_to examples_task_path(task) do %>
+    <h1><%= task.name %></h1>
+  <% end %>
 </li>

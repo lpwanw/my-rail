@@ -1,0 +1,21 @@
+<div class="w-1/2 bg-blue-500 p-4 rounded">
+  <div class="flex gap-4">
+    <i class="fa-solid fa-table-columns fa-xl pt-3 h-fit"></i>
+    <div>
+      <%= turbo_frame_tag :name do %>
+        <%= link_to @task.name, edit_examples_task_path(@task, attribute: :name), class: "text-2xl" %>
+      <% end %>
+
+      <div>In list <%= link_to "##{@task.status}", "#x" %></div>
+    </div>
+  </div>
+
+  <div class="flex gap-4">
+    <i class="fa-solid fa-table-columns fa-xl pt-3 h-fit"></i>
+    <div class="w-full">
+      <%= turbo_frame_tag :description do %>
+        <%= link_to @task.description, edit_examples_task_path(@task, attribute: :description), class: "text-2xl" %>
+      <% end %>
+    </div>
+  </div>
+</div>
