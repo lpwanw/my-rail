@@ -1,0 +1,5 @@
+<div class="flex flex-col md:flex-row gap-2 w-full">
+  <% Examples::Task.statuses.keys.each do |key| %>
+    <%= render "examples/sortable/task_by_status", key: key, tasks: @task_by_status[key] %>
+  <% end %>
+</div>
