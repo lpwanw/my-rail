@@ -1,5 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
-import { animate } from "motion"
+
 // Connects to data-controller="app--about"
 export default class extends Controller {
   static targets = [ "tabItem", "contentItem", "tabMenu", "tabButton", "stick" ]
