@@ -17,8 +17,8 @@
     <div class="sticky top-12 flex flex-col items-center gap-12">
       <h1 class="font-black text-5xl text-green-400">About Me</h1>
       <span class="text-center sticky top-24">
-      <%= FFaker::Lorem.paragraph %>
-    </span>
+        <%= FFaker::Lorem.paragraph %>
+      </span>
     </div>
 
     <div class="relative flex flex-col">
@@ -35,7 +35,7 @@
     </div>
   </div>
 
-  <div class="bg-black relative flex flex-col text-slate-200 py-12 px-6 gap-6 z-10" data-portfolio-target="services">
+  <div class="bg-black relative flex flex-col text-slate-200 py-12 px-6 gap-6 z-10" data-portfolio-target="service">
     <div class="sticky top-12 flex flex-col items-center gap-12">
       <h1 class="font-black text-5xl text-green-400">Services</h1>
       <a class="border rounded-full p-2"
@@ -59,10 +59,24 @@
   </div>
 
   <div class="bg-black relative flex flex-col text-slate-200 py-12 px-6 gap-6 z-10" data-portfolio-target="showcases">
-    <div class="sticky top-12 flex flex-col items-center gap-12">
+    <div class="flex flex-col items-center gap-12">
       <h1 class="font-black text-5xl text-green-400">Showcases</h1>
     </div>
+    <div class="flex flex-col gap-8 p-4">
+      <% Post.all.each do |post| %>
+        <div class="relative border rounded-md flex flex-col gap-4">
+          <div class="h-40 overflow-hidden relative flex">
+            <img class="absolute -top-12 hover:top-0 left-1/2 -translate-x-1/2" src="https://dummyimage.com/600x400/e696e6/6a6fb5" alt="dummy">
+          </div>
 
+          <h1 class="px-4"><%= post.title %></h1>
+
+          <%= link_to post.link, class: "absolute border rounded-md right-4 p-2 top-4 bg-black/30" do %>
+            Check it Out
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   </div>
 
   <div class="h-screen w-screen invisible z-10"></div>
