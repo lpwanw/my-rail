@@ -614,7 +614,7 @@ RSpec/MultipleSubjects:
 RSpec/NamedSubject:
   Description: Checks for explicitly referenced test subjects.
   Enabled: true
-  EnforcedStyle: always
+  EnforcedStyle: named_only
   SupportedStyles:
     - always
     - named_only
