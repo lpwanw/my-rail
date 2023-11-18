@@ -1,0 +1,8 @@
+- id: 1
+  title: "Infinity Scroll With no writing JS"
+  summary: "Rails 7 with Hotwire create Infinity Scroll paging with no writing JS code"
+  link: "/examples/infinity_scroll"
+- id: 2
+  title: "SortTable in rails, live update with Hotwire"
+  summary: "Rails 7 live update with no refresh page. Inline update"
+  link: "/examples/sortable"

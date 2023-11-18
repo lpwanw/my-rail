@@ -1,0 +1,144 @@
+<div class="flex flex-col bg-black" data-controller="portfolio">
+  <div class="h-screen bg-black sticky top-0 flex pt-48 z-10" data-portfolio-target="hero">
+    <%= render Logo.new class_name: "absolute top-24 left-1/2 -translate-x-1/2" %>
+    <div class="w-full bg-green-400 flex flex-col justify-between pt-36">
+      <div class="flex gap-4 flex-col justify-center items-center">
+        <a data-target="about" data-portfolio-target="deepLink">About</a>
+        <a data-target="service" data-portfolio-target="deepLink">Service</a>
+        <a data-target="showcases" data-portfolio-target="deepLink">Showcases</a>
+        <a data-target="contact" data-portfolio-target="deepLink">Contact</a>
+      </div>
+
+      <h1 class="text-5xl flex justify-center">TAY LE</h1>
+    </div>
+  </div>
+
+  <div class="bg-black relative flex flex-col text-slate-200 py-12 px-6 gap-6 z-10" data-portfolio-target="about">
+    <div class="sticky top-12 flex flex-col items-center gap-12">
+      <h1 class="font-black text-5xl text-green-400">About Me</h1>
+      <span class="text-center sticky top-24">
+        Passionate Ruby backend developer with 2+ years of experience in crafting scalable applications.
+        Now transitioning to full-stack development,
+        I am eager to leverage my technical expertise in a collaborative setting to drive innovation and efficiency.
+        Committed to embracing new technologies,
+        I bring a holistic approach to building robust and user-centric applications.
+      </span>
+    </div>
+
+    <div class="relative flex flex-col">
+      <div class="relative flex flex-col bg-green-400 p-0.5 sticky top-36">
+        <div class="text-3xl p-12 font-black text-center flex justify-center items-center text-black">
+          Ruby on Rails Enthusiast:
+        </div>
+        <div class="text-center bg-black py-12 px-6">
+          With a solid foundation in Ruby on Rails,
+          I've honed my skills over the past two years and
+          currently lead a team of four as a backend developer.
+          The framework's simplicity and efficiency have been
+          key factors in my successful project execution.
+        </div>
+      </div>
+
+      <div class="relative flex flex-col bg-green-400 p-0.5 sticky top-36">
+        <div class="text-3xl p-12 font-black text-center flex justify-center items-center text-black">
+          Leadership and Team Collaboration
+        </div>
+        <div class="text-center bg-black py-12 px-6">
+          In just two years, I've progressed from a novice to leading a team,
+          underscoring my ability to not only thrive individually but
+          also foster collaborative efforts within a team setting.
+          This experience has enhanced my capacity to
+          drive innovation and efficiency, ensuring successful project outcomes.
+        </div>
+      </div>
+
+      <div class="relative flex flex-col bg-green-400 p-0.5 sticky top-36">
+        <div class="text-3xl p-12 font-black text-center flex justify-center items-center text-black">
+          Rapid Learner and Tech Adapter
+        </div>
+        <div class="text-center bg-black py-12 px-6">
+          Adept at quickly adapting to new technologies,
+          I recently embraced Node.js for a project,
+          learning it within a mere two weeks to seamlessly integrate into the team.
+          This ability extends to researching and
+          implementing cutting-edge technologies,
+          such as serverless architecture and AWS Lambda,
+          showcasing my commitment to staying abreast of industry advancements.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-black relative flex flex-col text-slate-200 py-12 px-6 gap-6 z-10" data-portfolio-target="service">
+    <div class="sticky top-12 flex flex-col items-center gap-12">
+      <h1 class="font-black text-5xl text-green-400">Services</h1>
+      <a class="border rounded-full p-2"
+         href="https://www.linkedin.com/in/t%C3%A2y-l%C3%AA-ph%C6%B0%C6%A1ng-2b80651ba/"
+         target="_blank"
+      >
+        Contact
+      </a>
+    </div>
+
+    <div class="relative flex flex-col">
+      <% ["Ruby on Rails",
+          "Database Architecture",
+          "Web frontend (Tailwind)",
+          "Tested Code - CI/CD",
+          "AWS - Cloud Service"].each_with_index do |value, index| %>
+        <div class="font-bold text-3xl flex flex-col bg-black border border-green-400 sticky top-48 p-12 justify-between text-center">
+          <%= value %>
+          <div class="absolute bottom-0 right-0 text-7xl opacity-30">
+            0<%= index + 1 %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="bg-black relative flex flex-col text-slate-200 py-12 px-6 gap-6 z-10" data-portfolio-target="showcases">
+    <div class="flex flex-col items-center gap-12">
+      <h1 class="font-black text-5xl text-green-400">Showcases</h1>
+    </div>
+    <div class="flex flex-col gap-8 p-4">
+      <% Post.all.each do |post| %>
+        <div class="relative border rounded-md flex flex-col gap-4">
+          <div class="h-40 overflow-hidden relative flex">
+            <img class="absolute -top-12 hover:top-0 left-1/2 -translate-x-1/2" src="https://dummyimage.com/600x400/e696e6/6a6fb5" alt="dummy">
+          </div>
+
+          <h1 class="px-4"><%= post.title %></h1>
+
+          <%= link_to post.link, class: "absolute border rounded-md right-2 p-2 top-2 bg-black/30" do %>
+            Check it Out
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="h-screen w-screen invisible z-10"></div>
+  <div data-portfolio-target="contact"></div>
+
+  <div class="h-screen w-screen bg-green-400 fixed top-0 left-0 flex flex-col z-0 justify-between">
+    <h1 class="text-5xl flex justify-center">LET'S TALK</h1>
+
+    <%= render Logo.new class_name: "absolute top-24 left-1/2 -translate-x-1/2" %>
+
+    <div class="w-full bg-green-400 flex flex-col justify-between pt-36 pb-4 gap-16">
+      <div class="flex gap-4 flex-col justify-center items-center">
+        <a href="./#xxx">About</a>
+        <a href="./#xxx">Showcases</a>
+        <a href="./#xxx">Work</a>
+        <a href="./#xxx">Contact</a>
+      </div>
+
+      <div>
+        <div class="text-center">
+          Design by <a href="https://twitter.com/CristianMielu" target="_blank">Cristian Mielu</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
