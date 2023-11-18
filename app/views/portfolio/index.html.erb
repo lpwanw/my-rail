@@ -1,12 +1,12 @@
 <div class="flex flex-col bg-black" data-controller="portfolio">
   <div class="h-screen bg-black sticky top-0 flex pt-48 md:p-14 z-10" data-portfolio-target="hero">
-    <%= render Logo.new class_name: "absolute top-24 left-1/2 -translate-x-1/2 md:top-14 md:left-14 md:translate-x-0" %>
-    <div class="w-full bg-green-400 flex flex-col justify-between pt-36 md:rounded-tl-[96px] md:p-12">
+    <%= render Logo.new class_name: "absolute top-24 left-1/2 -translate-x-1/2 md:top-14 md:left-14 md:translate-x-0 xl:scale-150 xl:origin-top-left" %>
+    <div class="w-full bg-green-400 flex flex-col justify-between pt-36 md:rounded-tl-[96px] md:p-12 xl:rounded-tl-[148px]">
       <div class="flex gap-4 flex-col md:flex-row justify-end items-center">
-        <a data-target="about" data-portfolio-target="deepLink">About</a>
-        <a data-target="service" data-portfolio-target="deepLink">Service</a>
-        <a data-target="showcases" data-portfolio-target="deepLink">Showcases</a>
-        <a data-target="contact" data-portfolio-target="deepLink">Contact</a>
+        <a data-target="about" data-portfolio-target="deepLink" class="cursor-pointer">About</a>
+        <a data-target="service" data-portfolio-target="deepLink" class="cursor-pointer">Service</a>
+        <a data-target="showcases" data-portfolio-target="deepLink" class="cursor-pointer">Showcases</a>
+        <a data-target="contact" data-portfolio-target="deepLink" class="cursor-pointer">Contact</a>
       </div>
 
       <h1 class="text-5xl md:text-9xl flex justify-center">TAY LE</h1>
@@ -120,17 +120,17 @@
   <div class="h-screen invisible z-10"></div>
   <div data-portfolio-target="contact"></div>
 
-  <div class="h-full w-full md:top-12 md:w-10/12 md:h-5/6 md:left-1/2 md:-translate-x-1/2 bg-green-400 fixed top-0 left-0 flex flex-col z-0 justify-between md:rounded-br-[96px]">
+  <div class="h-full w-full md:top-12 md:w-10/12 md:h-5/6 md:left-1/2 md:-translate-x-1/2 bg-green-400 fixed top-0 left-0 flex flex-col z-0 justify-between md:rounded-br-[96px] xl:rounded-br-[148px]">
     <h1 class="text-5xl flex justify-center">LET'S TALK</h1>
 
-    <%= render Logo.new class_name: "absolute top-24 left-1/2 -translate-x-1/2 md:top-auto md:bottom-0 md:left-auto md:right-0 md:translate-x-0" %>
+    <%= render Logo.new class_name: "absolute top-24 left-1/2 -translate-x-1/2 md:top-auto md:bottom-0 md:left-auto md:right-0 md:translate-x-0 xl:scale-150 xl:origin-bottom-right" %>
 
     <div class="flex flex-col justify-between pt-36 pb-4 gap-16 md:gap-36">
       <div class="flex gap-4 flex-col justify-center items-center">
-        <a href="https://www.linkedin.com/in/t%C3%A2y-l%C3%AA-ph%C6%B0%C6%A1ng-2b80651ba/">Linkedin</a>
-        <a href="https://github.com/lpwanw">Github</a>
-        <a href="https://www.facebook.com/vinsrayleigh/">Facebook</a>
-        <a href="https://www.instagram.com/lp.wanw/">Instagram</a>
+        <a href="https://www.linkedin.com/in/t%C3%A2y-l%C3%AA-ph%C6%B0%C6%A1ng-2b80651ba/" target="_blank">Linkedin</a>
+        <a href="https://github.com/lpwanw" target="_blank">Github</a>
+        <a href="https://www.facebook.com/vinsrayleigh/" target="_blank">Facebook</a>
+        <a href="https://www.instagram.com/lp.wanw/" target="_blank">Instagram</a>
       </div>
 
       <div>
