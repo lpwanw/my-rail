@@ -17,21 +17,55 @@
     <div class="sticky top-12 flex flex-col items-center gap-12">
       <h1 class="font-black text-5xl text-green-400">About Me</h1>
       <span class="text-center sticky top-24">
-        <%= FFaker::Lorem.paragraph %>
+        Passionate Ruby backend developer with 2+ years of experience in crafting scalable applications.
+        Now transitioning to full-stack development,
+        I am eager to leverage my technical expertise in a collaborative setting to drive innovation and efficiency.
+        Committed to embracing new technologies,
+        I bring a holistic approach to building robust and user-centric applications.
       </span>
     </div>
 
     <div class="relative flex flex-col">
-      <% 3.times do %>
-        <div class="relative flex flex-col bg-green-400 p-0.5 sticky top-36">
-          <div class="text-3xl p-12 font-black text-center flex justify-center items-center text-black">
-            Ruby on Rails Engineer
-          </div>
-          <div class="text-center bg-black py-12 px-6">
-            <%= FFaker::Lorem.paragraph %>
-          </div>
+      <div class="relative flex flex-col bg-green-400 p-0.5 sticky top-36">
+        <div class="text-3xl p-12 font-black text-center flex justify-center items-center text-black">
+          Ruby on Rails Enthusiast:
         </div>
-      <% end %>
+        <div class="text-center bg-black py-12 px-6">
+          With a solid foundation in Ruby on Rails,
+          I've honed my skills over the past two years and
+          currently lead a team of four as a backend developer.
+          The framework's simplicity and efficiency have been
+          key factors in my successful project execution.
+        </div>
+      </div>
+
+      <div class="relative flex flex-col bg-green-400 p-0.5 sticky top-36">
+        <div class="text-3xl p-12 font-black text-center flex justify-center items-center text-black">
+          Leadership and Team Collaboration
+        </div>
+        <div class="text-center bg-black py-12 px-6">
+          In just two years, I've progressed from a novice to leading a team,
+          underscoring my ability to not only thrive individually but
+          also foster collaborative efforts within a team setting.
+          This experience has enhanced my capacity to
+          drive innovation and efficiency, ensuring successful project outcomes.
+        </div>
+      </div>
+
+      <div class="relative flex flex-col bg-green-400 p-0.5 sticky top-36">
+        <div class="text-3xl p-12 font-black text-center flex justify-center items-center text-black">
+          Rapid Learner and Tech Adapter
+        </div>
+        <div class="text-center bg-black py-12 px-6">
+          Adept at quickly adapting to new technologies,
+          I recently embraced Node.js for a project,
+          learning it within a mere two weeks to seamlessly integrate into the team.
+          This ability extends to researching and
+          implementing cutting-edge technologies,
+          such as serverless architecture and AWS Lambda,
+          showcasing my commitment to staying abreast of industry advancements.
+        </div>
+      </div>
     </div>
   </div>
 
@@ -47,9 +81,13 @@
     </div>
 
     <div class="relative flex flex-col">
-      <% 5.times do |index| %>
+      <% ["Ruby on Rails",
+          "Database Architecture",
+          "Web frontend (Tailwind)",
+          "Tested Code - CI/CD",
+          "AWS - Cloud Service"].each_with_index do |value, index| %>
         <div class="font-bold text-3xl flex flex-col bg-black border border-green-400 sticky top-48 p-12 justify-between text-center">
-          <%= FFaker::Company.name %>
+          <%= value %>
           <div class="absolute bottom-0 right-0 text-7xl opacity-30">
             0<%= index + 1 %>
           </div>
@@ -71,7 +109,7 @@
 
           <h1 class="px-4"><%= post.title %></h1>
 
-          <%= link_to post.link, class: "absolute border rounded-md right-4 p-2 top-4 bg-black/30" do %>
+          <%= link_to post.link, class: "absolute border rounded-md right-2 p-2 top-2 bg-black/30" do %>
             Check it Out
           <% end %>
         </div>
