@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :posts, only: %i[index]
+
   namespace :examples do
     resources :infinity_scroll, only: %i[index]
     resources :sortable, only: %i[index]
