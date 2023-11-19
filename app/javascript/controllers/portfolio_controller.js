@@ -3,7 +3,7 @@ import { scroll, animate } from "motion"
 
 // Connects to data-controller="portfolio"
 export default class extends Controller {
-  static targets = ["hero", "about", "service", "showcases", "contact", "deepLink"];
+  static targets = ["hero", "about", "service", "contact", "deepLink"];
 
   connect() {
     scroll(({ y }) => {
@@ -33,10 +33,6 @@ export default class extends Controller {
       }
       case "service": {
         this.serviceTarget.scrollIntoView({behavior: "smooth"})
-        break;
-      }
-      case "showcases": {
-        this.showcasesTarget.scrollIntoView({behavior: "smooth"})
         break;
       }
       case "contact": {
