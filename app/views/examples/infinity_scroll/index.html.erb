@@ -4,7 +4,9 @@
   <%= turbo_frame_tag :movies do %>
     <%= render partial: "examples/infinity_scroll/movie", collection: @items %>
   <% end %>
+  <div class="h-80">
 
+  </div>
   <%= turbo_frame_tag :load_more, loading: :lazy, src: examples_infinity_scroll_index_path(format: :turbo_stream) %>
 </div>
 
