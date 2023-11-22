@@ -32,7 +32,7 @@ RSpec.describe MasterData::ImportPostService do
         },
         {
           id: 2,
-          title: "SortTable in rails, live update with Hotwire",
+          title: "Sortable in rails, live update with Hotwire",
           summary: "Rails 7 live update with no refresh page. Inline update",
           link: "/examples/sortable"
         }
