@@ -7,6 +7,7 @@ ruby "3.2.2"
 
 gem "bootsnap", require: false
 gem "config"
+gem "devise"
 gem "dotenv-rails"
 gem "ffaker"
 gem "font-awesome-sass"
