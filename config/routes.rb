@@ -21,4 +21,9 @@ Rails.application.routes.draw do
 
     resources :tasks, only: %i[show edit update]
   end
+
+  devise_for :admins, controllers: {
+    sessions: "admins/sessions"
+  }
+  resources :admins, only: %i[index]
 end
