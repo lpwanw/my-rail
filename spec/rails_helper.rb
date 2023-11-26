@@ -10,7 +10,10 @@ require "rspec/rails"
 # Add additional requires below this line. Rails is not loaded until this point!
 
 require "simplecov"
-SimpleCov.start "rails"
+SimpleCov.start "rails" do
+  add_group "Components", "app/components"
+  add_group "Services", "app/services"
+end
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are

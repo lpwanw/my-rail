@@ -3,5 +3,15 @@
 require "rails_helper"
 
 RSpec.describe Admin do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "Custom Devise Methods" do
+    let(:admin) { create :admin }
+
+    %i[email_required? will_save_change_to_email? email_changed?].each do |method|
+      describe "##{method}" do
+        subject { admin.public_send(method) }
+
+        it { is_expected.to be false }
+      end
+    end
+  end
 end

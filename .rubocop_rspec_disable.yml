@@ -42,3 +42,19 @@ RSpec/Pending:
   Enabled: false
   VersionAdded: '1.25'
   Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/Pending
+
+RSpec/SpecFilePathFormat:
+  Description: Checks that spec file paths are consistent and well-formed.
+  Enabled: false
+  Include:
+    - "**/*_spec.rb"
+  Exclude:
+    - "**/spec/routing/**/*"
+  CustomTransform:
+    RuboCop: rubocop
+    RSpec: rspec
+  IgnoreMethods: true
+  IgnoreMetadata:
+    type: routing
+  VersionAdded: '2.24'
+  Reference: https://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/SpecFilePathFormat
