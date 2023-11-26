@@ -7,6 +7,7 @@ ruby "3.2.2"
 
 gem "bootsnap", require: false
 gem "config"
+gem "devise"
 gem "dotenv-rails"
 gem "ffaker"
 gem "font-awesome-sass"
@@ -46,6 +47,7 @@ end
 group :test do
   gem "capybara"
   gem "database_cleaner-active_record"
+  gem "rails-controller-testing"
   gem "selenium-webdriver"
   gem "shoulda-matchers"
   gem "simplecov", require: false

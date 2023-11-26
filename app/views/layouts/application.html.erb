@@ -1,27 +1,88 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Rails7Template</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+<head>
+  <title>Tay Le | <%= yield(:head_title).presence || "My Rail" %></title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-  </head>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_importmap_tags %>
+  <%= favicon_link_tag "icons/logo.svg" %>
+</head>
 
-  <body>
-    <main class="container mx-auto mt-28 px-5 flex">
-      <%= yield %>
-    </main>
-
-    <% if content_for?(:show_scroll_top) %>
-      <div data-controller="scroll-top"
-           class="group fixed right-12 bottom-6 scale-125 h-fit -translate-y-32"
-      >
-        <i class="md:group-hover:scale-150 transition-all fa-solid fa-circle-up fa-2xl" data-action="click->scroll_top#trigger"></i>
+<body class="antialiased text-slate-500 dark:text-slate-400 bg-white dark:bg-slate-900">
+<header class="sticky top-0 left-0 w-full bg-white dark:bg-slate-900 lg:border-b lg:border-slate-900/10 dark:border-slate-50/[0.06]">
+  <div class="max-w-7xl mx-auto">
+    <div class="py-4 lg:px-8 dark:border-slate-300/10 mx-4 lg:mx-0">
+      <div class="relative flex items-center">
+        <a class="mr-3 flex-none w-[2.0625rem] overflow-hidden md:w-auto" href="/posts">
+          <%= image_tag "icons/logo.svg", class: "w-auto h-10" %>
+        </a>
+        <h1 class="grow flex justify-center text-3xl font-black lg:hidden">
+          TAY NE
+        </h1>
+        <div class="relative flex items-center ml-auto">
+          <nav class="hidden mr-6 pr-6 border-r border-slate-200 dark:border-slate-800 lg:block text-sm leading-6 font-semibold text-slate-700 dark:text-slate-200">
+            <ul class="flex space-x-8">
+              <li><a class="hover:text-sky-500 dark:hover:text-sky-400" href="/">Portfolio</a></li>
+              <li>
+                <a href="/posts" class="hover:text-sky-500 dark:hover:text-sky-400">Showcases</a>
+              </li>
+            </ul>
+          </nav>
+          <div class="flex items-center">
+            <%= render DarkButton.new %>
+            <a href="https://github.com/lpwanw" target="_blank" class="ml-6 block text-slate-400 hover:text-slate-500 dark:hover:text-slate-300">
+              <svg viewBox="0 0 16 16" class="w-5 h-5" fill="currentColor" aria-hidden="true">
+                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
       </div>
-    <% end %>
-  </body>
+    </div>
+  </div>
+</header>
+<div data-turbo-permanent id="nav-permanent" class="hidden lg:block fixed z-20 inset-0 top-[6rem] left-[max(0px,calc(50%-45rem))] right-auto w-[19rem] pb-10 pl-8 pr-6 overflow-y-auto">
+  <nav id="nav" class="lg:text-sm lg:leading-6 relative">
+    <div class="sticky top-0 -ml-0.5 pointer-events-none">
+      <div class="h-10 bg-white dark:bg-slate-900"></div>
+      <div class="bg-white dark:bg-slate-900 relative pointer-events-auto">
+        <button type="button" class="hidden w-full lg:flex items-center text-sm leading-6 text-slate-400 rounded-md ring-1 ring-slate-900/10 shadow-sm py-1.5 pl-2 pr-3 hover:ring-slate-300 dark:bg-slate-800 dark:highlight-white/5 dark:hover:bg-slate-700">
+          <svg width="24" height="24" fill="none" aria-hidden="true" class="mr-3 flex-none">
+            <path d="m19 19-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            <circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></circle>
+          </svg>
+          Quick search...<span class="ml-auto pl-3 flex-none text-xs font-semibold">Ctrl K</span></button>
+      </div>
+      <div class="h-8 bg-gradient-to-b from-white dark:from-slate-900"></div>
+    </div>
+    <ul>
+      <li>
+        <a class="group flex items-center lg:text-sm lg:leading-6 mb-4 font-semibold text-sky-500 dark:text-sky-400" href="/posts">
+          <div class="mr-4 rounded-md ring-1 ring-slate-900/5 shadow-sm group-hover:shadow group-hover:ring-slate-900/10 dark:ring-0 dark:shadow-none dark:group-hover:shadow-none dark:group-hover:highlight-white/10 group-hover:shadow-sky-200 dark:group-hover:bg-sky-500 dark:bg-sky-500 dark:highlight-white/10">
+            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M8.5 7c1.093 0 2.117.27 3 .743V17a6.345 6.345 0 0 0-3-.743c-1.093 0-2.617.27-3.5.743V7.743C5.883 7.27 7.407 7 8.5 7Z" class="fill-sky-200 group-hover:fill-sky-500 dark:fill-sky-300 dark:group-hover:fill-sky-300"></path>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M15.5 7c1.093 0 2.617.27 3.5.743V17c-.883-.473-2.407-.743-3.5-.743s-2.117.27-3 .743V7.743a6.344 6.344 0 0 1 3-.743Z" class="fill-sky-400 group-hover:fill-sky-500 dark:fill-sky-200 dark:group-hover:fill-sky-200"></path>
+            </svg>
+          </div>
+          Showcases</a></li>
+    </ul>
+  </nav>
+</div>
+
+<main class="container mx-auto mt-28 flex lg:pl-[16rem] 2xl:pl-[22rem] px-5">
+  <%= yield %>
+</main>
+
+<% if content_for?(:show_scroll_top) %>
+  <div data-controller="scroll-top"
+       class="group fixed right-12 bottom-6 scale-125 h-fit -translate-y-32"
+  >
+    <i class="md:group-hover:scale-150 transition-all fa-solid fa-circle-up fa-2xl" data-action="click->scroll_top#trigger"></i>
+  </div>
+<% end %>
+</body>
 </html>

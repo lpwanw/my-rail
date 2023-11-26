@@ -13,10 +13,17 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :posts, only: %i[index]
+
   namespace :examples do
     resources :infinity_scroll, only: %i[index]
     resources :sortable, only: %i[index]
 
     resources :tasks, only: %i[show edit update]
   end
+
+  devise_for :admins, controllers: {
+    sessions: "admins/sessions"
+  }
+  resources :admins, only: %i[index]
 end
