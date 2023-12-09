@@ -1,4 +1,4 @@
-<div id="<%= dom_id post %>">
+<div id="<%= dom_id post %>" data-controller="admins--post--editorjs" >
   <div>
     <h1><%= Post.human_attribute_name(:title) %></h1>
     <span><%= post.title %></span>
@@ -10,6 +10,11 @@
   <div>
     <h1><%= Post.human_attribute_name(:link) %></h1>
     <span><%= post.link %></span>
+  </div>
+  <div>
+    <h1><%= Post.human_attribute_name(:body) %></h1>
+    <div id="editorjs" readonly></div>
+    <input id="post_body" hidden value="<%= post.body %>" data-admins--post--editorjs-target="body"/>
   </div>
 
   <% if action_name != "show" %>
