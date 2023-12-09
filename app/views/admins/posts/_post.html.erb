@@ -5,11 +5,11 @@
   </div>
   <div>
     <h1><%= Post.human_attribute_name(:summary) %></h1>
-    <span><%= post.title %></span>
+    <span><%= post.summary %></span>
   </div>
   <div>
     <h1><%= Post.human_attribute_name(:link) %></h1>
-    <span><%= post.title %></span>
+    <span><%= post.link %></span>
   </div>
 
   <% if action_name != "show" %>

@@ -17,3 +17,4 @@ pin "@motionone/utils", to: "https://ga.jspm.io/npm:@motionone/utils@10.16.3/dis
 pin "hey-listen", to: "https://ga.jspm.io/npm:hey-listen@1.0.8/dist/index.js"
 pin "tslib", to: "https://ga.jspm.io/npm:tslib@2.6.2/tslib.es6.mjs"
 pin "sortablejs", to: "https://ga.jspm.io/npm:sortablejs@1.15.0/modular/sortable.esm.js"
+pin "@editorjs/editorjs", to: "https://ga.jspm.io/npm:@editorjs/editorjs@2.28.2/dist/editorjs.mjs"
