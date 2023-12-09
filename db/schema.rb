@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_22_153202) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_09_094254) do
   create_table "admins", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "username", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -34,6 +34,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_22_153202) do
     t.string "link", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.json "body"
   end
 
 end
