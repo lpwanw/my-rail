@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Admins::PostsController < ApplicationController
+class Admins::PostsController < AdminsController
   before_action :set_admins_post, only: %i[show edit update destroy]
 
   # GET /admins/posts or /admins/posts.json
