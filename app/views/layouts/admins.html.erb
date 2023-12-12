@@ -12,8 +12,41 @@
   <%= favicon_link_tag "icons/logo.svg" %>
 </head>
 
-<body>
-<main class="container mx-auto flex flex-col">
+<body class="flex h-full">
+
+<div class="w-72 h-screen fixed top-0 left-0 px-6 pb-6 flex flex-col gap-6 bg-zinc-950 text-white">
+  <div class="h-16 flex flex-col justify-center items-start">
+    <%= image_tag "icons/logo.svg", class: "h-10 w-auto", alt: "Tayne" %>
+  </div>
+  <ul class="grow flex flex-col">
+    <li class="rounded-md hover:bg-zinc-800 p-2">
+      <%= link_to admins_path do %>
+        <i class="fa-solid fa-house fa-lg"></i>
+        <span class="pl-2 font-bold">
+          Dashboard
+        </span>
+      <% end %>
+    </li>
+    <li class="rounded-md hover:bg-zinc-800 p-2">
+      <%= link_to admins_posts_path do %>
+        <i class="fa-solid fa-camera-retro fa-lg"></i>
+        <span class="pl-2 font-bold">
+          Posts
+        </span>
+      <% end %>
+    </li>
+  </ul>
+  <div class="flex">
+    <%= link_to destroy_admin_session_path, data: { turbo_method: :delete }, class: "rounded-md h-full w-full hover:bg-zinc-800 p-2" do %>
+      <i class="fa-solid fa-right-from-bracket fa-lg"></i>
+      <span class="pl-2 font-bold">
+          Sign Out
+        </span>
+    <% end %>
+  </div>
+</div>
+
+<main class="pl-80 container mx-auto flex flex-col">
   <%= yield %>
 </main>
 
