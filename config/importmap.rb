@@ -26,3 +26,4 @@ pin "@editorjs/list", to: "https://ga.jspm.io/npm:@editorjs/list@1.9.0/dist/list
 pin "@editorjs/paragraph", to: "https://ga.jspm.io/npm:@editorjs/paragraph@2.11.3/dist/paragraph.mjs"
 pin "@editorjs/quote", to: "https://ga.jspm.io/npm:@editorjs/quote@2.6.0/dist/quote.mjs"
 pin "@editorjs/code", to: "https://ga.jspm.io/npm:@editorjs/code@2.9.0/dist/code.mjs"
+pin "highlight.js", to: "https://ga.jspm.io/npm:highlight.js@11.9.0/es/index.js"
