@@ -26,4 +26,8 @@ Rails.application.routes.draw do
     sessions: "admins/sessions"
   }
   resources :admins, only: %i[index]
+
+  namespace :admins do
+    resources :posts
+  end
 end
