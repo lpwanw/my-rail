@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   namespace :examples do
     resources :infinity_scroll, only: %i[index]
     resources :sortable, only: %i[index]
+    resources :rooms, only: %i[index]
+    resources :messages, only: %i[create]
 
     resources :tasks, only: %i[show edit update]
   end
