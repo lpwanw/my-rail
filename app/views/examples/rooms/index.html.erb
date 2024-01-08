@@ -1,0 +1,39 @@
+<div class="lg:pl-[16rem] 2xl:pl-[36rem] absolute w-full top-0 right-0 flex-1 px-6 pt-20 pb-4 justify-between flex flex-col h-screen">
+  <div class="flex sm:items-center justify-between py-3 border-b-2 border-gray-200">
+    <div class="relative flex items-center space-x-4">
+      <%= image_tag "icons/logo.svg", class: "w-10 sm:w-16 h-10 sm:h-16 rounded-full" %>
+      <div class="flex flex-col leading-tight">
+        <div class="text-2xl mt-1 flex items-center">
+          <span class="text-gray-700 mr-3">General</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= turbo_stream_from @room %>
+  <div id="messages" class="grow flex flex-col space-y-4 p-3 overflow-y-auto">
+    <span class="mt-auto"></span>
+    <%= render partial: "examples/messages/message", collection: @room.messages %>
+  </div>
+  <div class="border-t-2 border-gray-200 px-4 pt-4 mb-2 sm:mb-0">
+    <%= form_for Examples::Message.new,
+                 data: {
+                    controller: "clear-form",
+                    action: "turbo:submit-end->clear-form#clear"
+                 },
+                 url: examples_messages_path, html: { class: "relative flex" } do |f| %>
+      <%= f.text_field :content,
+                       data: { "clear-form-target": "input" },
+                       class: "w-full focus:outline-none focus:placeholder-gray-400 text-gray-600 placeholder-gray-600 pl-4 bg-gray-200 rounded-md py-3",
+                       placeholder: "Write your message!"
+      %>
+      <div class="absolute right-0 items-center inset-y-0 flex">
+        <button type="submit" class="inline-flex items-center justify-center rounded-lg px-4 py-3 transition duration-500 ease-in-out text-white bg-blue-500 hover:bg-blue-400 focus:outline-none">
+          <span class="font-bold">Send</span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-6 w-6 ml-2 transform rotate-90">
+            <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"></path>
+          </svg>
+        </button>
+      </div>
+    <% end %>
+  </div>
+</div>
