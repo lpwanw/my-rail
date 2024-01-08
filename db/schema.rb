@@ -11,7 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.1].define(version: 2023_12_09_094254) do
-  create_table "admins", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
+  create_table "admins", force: :cascade do |t|
     t.string "username", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.datetime "remember_created_at"
@@ -20,7 +20,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_09_094254) do
     t.index ["username"], name: "index_admins_on_username", unique: true
   end
 
-  create_table "examples_tasks", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
+  create_table "examples_tasks", force: :cascade do |t|
     t.string "name", null: false
     t.string "description", null: false
     t.string "status", null: false
@@ -28,7 +28,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_09_094254) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "posts", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
+  create_table "posts", force: :cascade do |t|
     t.string "title", null: false
     t.text "summary", null: false
     t.string "link", null: false
