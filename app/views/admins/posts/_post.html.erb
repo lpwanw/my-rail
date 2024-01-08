@@ -1,0 +1,29 @@
+<div id="<%= dom_id post %>">
+  <% if action_name == "show" %>
+    <div>
+      <h1><%= Post.human_attribute_name(:title) %></h1>
+      <span><%= post.title %></span>
+    </div>
+    <div>
+      <h1><%= Post.human_attribute_name(:summary) %></h1>
+      <span><%= post.summary %></span>
+    </div>
+    <div>
+      <h1><%= Post.human_attribute_name(:link) %></h1>
+      <span><%= post.link %></span>
+    </div>
+    <div>
+      <h1><%= Post.human_attribute_name(:body) %></h1>
+      <%= render PostBody.new post.body %>
+    </div>
+  <% end %>
+
+  <% if action_name != "show" %>
+    <div>
+      <h1><%= post.title %></h1>
+    </div>
+    <%= link_to "Show this post", admins_post_path(post), class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Edit this post", edit_admins_post_path(post), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

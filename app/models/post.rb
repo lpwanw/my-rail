@@ -8,4 +8,6 @@ class Post < ApplicationRecord
 
   validates :link, presence: true
   validates :link, length: { maximum: 255 }
+
+  scope :newest, -> { order(created_at: :desc) }
 end

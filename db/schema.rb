@@ -10,8 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_22_153202) do
-  create_table "admins", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
+ActiveRecord::Schema[7.1].define(version: 2024_01_08_082331) do
+  create_table "admins", force: :cascade do |t|
     t.string "username", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.datetime "remember_created_at"
@@ -20,7 +20,22 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_22_153202) do
     t.index ["username"], name: "index_admins_on_username", unique: true
   end
 
-  create_table "examples_tasks", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
+  create_table "examples_messages", force: :cascade do |t|
+    t.integer "room_id", null: false
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_examples_messages_on_room_id"
+  end
+
+  create_table "examples_rooms", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_examples_rooms_on_name", unique: true
+  end
+
+  create_table "examples_tasks", force: :cascade do |t|
     t.string "name", null: false
     t.string "description", null: false
     t.string "status", null: false
@@ -28,12 +43,14 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_22_153202) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "posts", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
+  create_table "posts", force: :cascade do |t|
     t.string "title", null: false
     t.text "summary", null: false
     t.string "link", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "body"
   end
 
+  add_foreign_key "examples_messages", "examples_rooms", column: "room_id"
 end

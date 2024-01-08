@@ -5,5 +5,6 @@ FactoryBot.define do
     title { FFaker::Lorem.word }
     summary { FFaker::Lorem.paragraph }
     link { FFaker::Internet.http_url }
+    body { "" }
   end
 end
